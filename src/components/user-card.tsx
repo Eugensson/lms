@@ -15,7 +15,7 @@ export const UserCard = ({ type }: { type: string }) => {
           className="cursor-pointer"
         />
       </div>
-      <h2 className="text-2xl font-semibold">1,234</h2>
+      <h2 className="text-2xl font-semibold">106</h2>
       <h3 className="text-sm font-medium capitalize text-gray-500">{type}</h3>
     </div>
   );
