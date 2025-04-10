@@ -10,7 +10,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import Image from "next/image";
+import { MoreHorizontal } from "lucide-react";
 
 const data = [
   {
@@ -80,7 +80,7 @@ export const FinanceChart = () => {
     <div className="bg-white rounded-xl w-full h-full p-4">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Finance</h1>
-        <Image src="/moreDark.png" alt="" width={20} height={20} />
+        <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <LineChart

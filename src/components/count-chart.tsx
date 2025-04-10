@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { MoreHorizontal } from "lucide-react";
 import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 
 const data = [
@@ -26,7 +27,7 @@ export const CountChart = () => {
     <div className="bg-white rounded-xl w-full h-full p-4">
       <div className="flex items-center justify-between">
         <h2 className="text-lg font-semibold">Students</h2>
-        <Image src="/moreDark.png" alt="3 dots" width={20} height={20} />
+        <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
       </div>
       <div className="relative w-full h-3/4">
         <ResponsiveContainer>

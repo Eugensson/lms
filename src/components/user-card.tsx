@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { MoreHorizontal } from "lucide-react";
 
 export const UserCard = ({ type }: { type: string }) => {
   return (
@@ -7,13 +7,7 @@ export const UserCard = ({ type }: { type: string }) => {
         <span className="text-[10px] bg-white px-2 py-1 rounded-full text-green-600">
           2025/26
         </span>
-        <Image
-          src="/more.png"
-          alt="more"
-          width={20}
-          height={20}
-          className="cursor-pointer"
-        />
+        <MoreHorizontal size={24} className="text-white cursor-pointer" />
       </div>
       <h2 className="text-2xl font-semibold">106</h2>
       <h3 className="text-sm font-medium capitalize text-gray-500">{type}</h3>

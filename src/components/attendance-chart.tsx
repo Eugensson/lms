@@ -10,7 +10,7 @@ import {
   CartesianGrid,
   ResponsiveContainer,
 } from "recharts";
-import Image from "next/image";
+import { MoreHorizontal } from "lucide-react";
 
 const data = [
   {
@@ -45,7 +45,7 @@ export const AttendanceChart = () => {
     <div className="bg-white rounded-lg p-4 h-full">
       <div className="flex justify-between items-center">
         <h1 className="text-lg font-semibold">Attendance</h1>
-        <Image src="/moreDark.png" alt="" width={20} height={20} />
+        <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
       </div>
       <ResponsiveContainer width="100%" height="90%">
         <BarChart width={500} height={300} data={data} barSize={20}>
