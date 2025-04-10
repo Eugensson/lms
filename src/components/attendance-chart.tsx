@@ -14,29 +14,29 @@ import { MoreHorizontal } from "lucide-react";
 
 const data = [
   {
-    name: "Mon",
-    present: 63,
-    absent: 43,
+    name: "Понеділок",
+    присутні: 63,
+    відсутні: 43,
   },
   {
-    name: "Tue",
-    present: 76,
-    absent: 30,
+    name: "Вівторок",
+    присутні: 76,
+    відсутні: 30,
   },
   {
-    name: "Wed",
-    present: 90,
-    absent: 16,
+    name: "Середа",
+    присутні: 90,
+    відсутні: 16,
   },
   {
-    name: "Thu",
-    present: 86,
-    absent: 20,
+    name: "Четвер",
+    присутні: 86,
+    відсутні: 20,
   },
   {
-    name: "Fri",
-    present: 65,
-    absent: 41,
+    name: "П'ятниця",
+    присутні: 65,
+    відсутні: 41,
   },
 ];
 
@@ -44,7 +44,7 @@ export const AttendanceChart = () => {
   return (
     <div className="bg-white rounded-lg p-4 h-full">
       <div className="flex justify-between items-center">
-        <h1 className="text-lg font-semibold">Attendance</h1>
+        <h1 className="text-lg font-semibold">Відвідуваність</h1>
         <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
       </div>
       <ResponsiveContainer width="100%" height="90%">
@@ -66,13 +66,13 @@ export const AttendanceChart = () => {
             wrapperStyle={{ paddingTop: "20px", paddingBottom: "40px" }}
           />
           <Bar
-            dataKey="present"
+            dataKey="присутні"
             fill="#fae27c"
             legendType="circle"
             radius={[10, 10, 0, 0]}
           />
           <Bar
-            dataKey="absent"
+            dataKey="відсутні"
             fill="#c3ebfa"
             legendType="circle"
             radius={[10, 10, 0, 0]}

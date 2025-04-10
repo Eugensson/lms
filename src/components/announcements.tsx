@@ -2,8 +2,8 @@ export const Announcements = () => {
   return (
     <div className="bg-white p-4 rounded-md">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold">Announcements</h2>
-        <span className="text-xs text-gray-400">View All</span>
+        <h2 className="text-xl font-semibold">Оголошення</h2>
+        <span className="text-xs text-gray-400">Переглянути усі</span>
       </div>
       <ul className="flex flex-col gap-4 mt-4">
         <li className="bg-[#edf9fd] rounded-md p-4">

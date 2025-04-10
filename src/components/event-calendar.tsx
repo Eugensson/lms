@@ -42,9 +42,9 @@ export const EventCalendar = () => {
 
   return (
     <div className="p-4 rounded-md bg-white">
-      <Calendar onChange={setValue} value={value} />
+      <Calendar onChange={setValue} value={value} locale="uk" />
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold my-4">Events</h2>
+        <h2 className="text-xl font-semibold my-4">Події</h2>
         <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
       </div>
       <ul className="flex flex-col gap-4">
