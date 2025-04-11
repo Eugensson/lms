@@ -10,7 +10,7 @@ const data = [
 
 export const Performance = () => {
   return (
-    <div className="bg-white p-4 rounded-md h-80 relative">
+    <div className="relative h-80 bg-white p-4 rounded-md">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Результативність</h2>
         <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
@@ -31,9 +31,9 @@ export const Performance = () => {
       </ResponsiveContainer>
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
         <h3 className="text-3xl font-bold">9.2</h3>
-        <p className="text-sm text-gray-400">з 10</p>
+        <p className="text-sm text-gray-500">з 10</p>
       </div>
-      <h3 className="absolute bottom-16 left-0 right-0 m-auto text-center font-medium">
+      <h3 className="absolute bottom-10 left-0 right-0 m-auto text-center font-medium">
         1-е півріччя - 2-е півріччя
       </h3>
     </div>

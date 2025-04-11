@@ -16,7 +16,7 @@ import { Announcements } from "@/components/announcements";
 
 import { role } from "@/lib/data";
 
-const TeacherDetailsPage = () => {
+const StudentDetailsPage = () => {
   return (
     <div className="flex-1 p-4 flex flex-col gap-4 xl:flex-row">
       <div className="w-full xl:w-2/3 space-y-4">
@@ -24,15 +24,15 @@ const TeacherDetailsPage = () => {
           <div className="p-4 flex gap-4 rounded-md bg-[#c3ebfa]">
             <div className="relative w-1/3 h-fit md:max-h-50 lg:max-h-30 aspect-square overflow-hidden rounded-full">
               <Image
-                src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200"
-                alt="Фото вчителя"
+                src="https://images.pexels.com/photos/5414817/pexels-photo-5414817.jpeg?auto=compress&cs=tinysrgb&w=1200"
+                alt="Фото учня"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="w-2/3 flex flex-col justify-between gap-4">
               <div className="flex items-center justify-between gap-4">
-                <h2 className="text-2xl font-semibold">Leonard Snyder</h2>
+                <h2 className="text-2xl font-semibold">Cameron Moran</h2>
                 {role === "admin" && (
                   <FormModal
                     table="teacher"
@@ -85,23 +85,23 @@ const TeacherDetailsPage = () => {
             </li>
             <li className="relative p-4 flex flex-col gap-4 rounded-md bg-white">
               <PiTreeStructureLight className="absolute top-4 right-4 size-7 text-gray-500" />
-              <h3 className="text-2xl font-semibold">2</h3>
-              <p className="text-gray-500">Предмети</p>
+              <h3 className="text-2xl font-semibold">6.5</h3>
+              <p className="text-gray-500">Середній бал</p>
             </li>
             <li className="relative p-4 flex flex-col gap-4 rounded-md bg-white">
               <PiBookOpenText className="absolute top-4 right-4 size-7 text-gray-500" />
-              <h3 className="text-2xl font-semibold">10</h3>
-              <p className="text-gray-500">Заняття</p>
+              <h3 className="text-2xl font-semibold">18</h3>
+              <p className="text-gray-500">Предмети</p>
             </li>
             <li className="relative p-4 flex flex-col gap-4 rounded-md bg-white">
               <PiChalkboardTeacherFill className="absolute top-4 right-4 size-7 text-gray-500" />
-              <h3 className="text-2xl font-semibold">6</h3>
-              <p className="text-gray-500">Класи</p>
+              <h3 className="text-2xl font-semibold">6A</h3>
+              <p className="text-gray-500">Клас</p>
             </li>
           </ul>
         </div>
         <div className="bg-white rounded-md p-4 h-200">
-          <h1>Розклад вчителя</h1>
+          <h1>Розклад занять учня</h1>
           <BigCalendar />
         </div>
       </div>
@@ -110,19 +110,19 @@ const TeacherDetailsPage = () => {
           <h2 className="text-xl font-semibold">Shortcuts</h2>
           <div className="mt-4 flex gap-4 flex-wrap text-xs text-gray-500">
             <Link className="p-3 rounded-md bg-[#edf9fd]" href="/">
-              Teacher&apos;s Classes
+              Student&apos;s Lessons
             </Link>
             <Link className="p-3 rounded-md bg-[#f1f0ff]" href="/">
-              Teacher&apos;s Students
+              Student&apos;s Teachers
             </Link>
             <Link className="p-3 rounded-md bg-[#fefce8]" href="/">
-              Teacher&apos;s Lessons
+              Student&apos;s Exams
             </Link>
             <Link className="p-3 rounded-md bg-pink-50" href="/">
-              Teacher&apos;s Exams
+              Student&apos;s Assignments
             </Link>
             <Link className="p-3 rounded-md bg-[#edf9fd]" href="/">
-              Teacher&apos;s Assignments
+              Student&apos;s Results
             </Link>
           </div>
         </div>
@@ -133,4 +133,4 @@ const TeacherDetailsPage = () => {
   );
 };
 
-export default TeacherDetailsPage;
+export default StudentDetailsPage;
