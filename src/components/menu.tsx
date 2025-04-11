@@ -8,7 +8,7 @@ export const Menu = () => {
     <ul className="text-sm">
       {menuItems.map(({ title, items }) => (
         <li className="flex flex-col gap-2" key={title}>
-          <span className="my-4 hidden lg:block uppercase text-gray-400 font-light">
+          <span className="my-4 hidden lg:block uppercase text-muted-foreground font-light">
             {title}
           </span>
           <ul>
@@ -20,7 +20,7 @@ export const Menu = () => {
                       href={href}
                       className="py-2 md:px-2 flex items-center justify-center lg:justify-start gap-4 text-gray-500 rounded-md hover:bg-[#edf9fd] transition-colors"
                     >
-                      <Icon />
+                      <Icon size={20} />
                       <span className="hidden lg:block">{label}</span>
                     </Link>
                   </li>

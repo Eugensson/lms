@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Announcements = () => {
   return (
-    <div className="bg-white p-4 rounded-md space-y-4">
+    <div className="p-4 rounded-md space-y-4">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-semibold">Оголошення</h2>
         <span className="text-sm text-muted-foreground">Переглянути усі</span>
