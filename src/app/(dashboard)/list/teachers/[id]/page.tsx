@@ -115,7 +115,7 @@ const TeacherDetailsPage = () => {
             <Link className="p-3 rounded-md bg-[#f1f0ff]" href="/">
               Teacher&apos;s Students
             </Link>
-            <Link className="p-3 rounded-md bg-[#fefces8]" href="/">
+            <Link className="p-3 rounded-md bg-[#fefce8]" href="/">
               Teacher&apos;s Lessons
             </Link>
             <Link className="p-3 rounded-md bg-pink-50" href="/">
