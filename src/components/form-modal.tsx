@@ -6,6 +6,7 @@ import { Plus, SquarePen, Trash2, X } from "lucide-react";
 
 // USE LAZY LOADING
 
+import { Button } from "@/components/ui/button";
 import { TeacherForm } from "@/components/forms/teacher-form";
 import { StudentForm } from "@/components/forms/student-form";
 
@@ -49,14 +50,6 @@ export const FormModal = ({
   data?: any;
   id?: number;
 }) => {
-  const size = type === "create" ? "w-8 h-8" : "w-7 h-7";
-  const bgColor =
-    type === "create"
-      ? "bg-[#fae27c]"
-      : type === "update"
-      ? "bg-[#c3ebfa]"
-      : "bg-[#cfceff]";
-
   const [open, setOpen] = useState(false);
 
   const Form = () => {
@@ -66,9 +59,9 @@ export const FormModal = ({
           Усі дані буде втрачено. Ви впевнені, що хочете видалити дану
           інформацію?
         </span>
-        <button className="bg-red-700 text-white py-2 px-4 rounded-md border-none w-max self-center">
+        <Button type="submit" size="lg" variant="destructive">
           Видалити
-        </button>
+        </Button>
       </form>
     ) : type === "create" || type === "update" ? (
       forms[table](type, data)
@@ -79,18 +72,21 @@ export const FormModal = ({
 
   return (
     <>
-      <button
-        className={`${size} flex items-center justify-center rounded-full ${bgColor} cursor-pointer`}
+      <Button
+        size="icon"
+        type="button"
+        variant="outline"
         onClick={() => setOpen(true)}
+        className="cursor-pointer"
       >
         {type === "create" ? (
-          <Plus size={16} />
+          <Plus />
         ) : type === "update" ? (
-          <SquarePen size={16} />
+          <SquarePen />
         ) : (
-          <Trash2 size={16} />
+          <Trash2 />
         )}
-      </button>
+      </Button>
       {open && (
         <div className="w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
           <div className="bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">

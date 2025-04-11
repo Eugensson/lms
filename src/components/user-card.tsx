@@ -1,16 +1,28 @@
 import { MoreHorizontal } from "lucide-react";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
 export const UserCard = ({ type }: { type: string }) => {
   return (
-    <div className="flex-1 space-y-4 rounded-2xl odd:bg-[#cfceff] even:bg-[#fae27c] p-4 min-w-[130px]">
-      <div className="flex items-center justify-between">
-        <span className="text-[10px] bg-white px-2 py-1 rounded-full text-green-600">
-          2025/26
-        </span>
-        <MoreHorizontal size={24} className="text-white cursor-pointer" />
-      </div>
-      <h2 className="text-2xl font-semibold">106</h2>
-      <h3 className="text-sm font-medium capitalize text-gray-500">{type}</h3>
-    </div>
+    <Card className="flex-1">
+      <CardContent className="flex items-center justify-between">
+        <Badge>2025/26</Badge>
+        <MoreHorizontal
+          size={24}
+          className="ttext-muted-foreground cursor-pointer"
+        />
+      </CardContent>
+      <CardHeader>
+        <CardTitle className="text-2xl">106</CardTitle>
+        <CardDescription className="capitalize">{type}</CardDescription>
+      </CardHeader>
+    </Card>
   );
 };

@@ -1,6 +1,7 @@
 import { ArrowDownWideNarrow, SlidersHorizontal } from "lucide-react";
 
 import { Table } from "@/components/table";
+import { Button } from "@/components/ui/button";
 import { FormModal } from "@/components/form-modal";
 import { Pagination } from "@/components/pagination";
 import { TableSearch } from "@/components/table-search";
@@ -77,12 +78,22 @@ const ParentListPage = () => {
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex items-center gap-4 self-end">
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#fae27c] cursor-pointer">
-              <SlidersHorizontal size={16} />
-            </button>
-            <button className="w-8 h-8 flex items-center justify-center rounded-full bg-[#fae27c] cursor-pointer">
-              <ArrowDownWideNarrow size={16} />
-            </button>
+            <Button
+              size="icon"
+              type="button"
+              variant="outline"
+              className="cursor-pointer"
+            >
+              <SlidersHorizontal />
+            </Button>
+            <Button
+              size="icon"
+              type="button"
+              variant="outline"
+              className="cursor-pointer"
+            >
+              <ArrowDownWideNarrow />
+            </Button>
             {role === "admin" && <FormModal table="parent" type="create" />}
           </div>
         </div>

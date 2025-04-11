@@ -7,27 +7,35 @@ import { AttendanceChart } from "@/components/attendance-chart";
 
 const AdminPage = () => {
   return (
-    <div className="p-4 flex flex-col md:flex-row gap-4">
-      <div className="w-full lg:w-2/3 flex flex-col gap-8">
-        <div className="flex flex-wrap justify-between gap-4">
-          <UserCard type="student" />
-          <UserCard type="teacher" />
-          <UserCard type="parent" />
-          <UserCard type="staff" />
-        </div>
-        <div className="flex flex-col lg:flex-row gap-4">
-          <div className="w-full lg:w-1/3 h-110">
+    <div className="p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <div className="lg:col-span-2 space-y-8">
+        <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+          <li>
+            <UserCard type="student" />
+          </li>
+          <li>
+            <UserCard type="teacher" />
+          </li>
+          <li>
+            <UserCard type="parent" />
+          </li>
+          <li>
+            <UserCard type="staff" />
+          </li>
+        </ul>
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <li className="h-110">
             <CountChart />
-          </div>
-          <div className="w-full lg:w-2/3 h-110">
+          </li>
+          <li className="h-110">
             <AttendanceChart />
-          </div>
-        </div>
-        <div className="w-full h-125">
-          <FinanceChart />
-        </div>
+          </li>
+          <li className="h-125 md:col-span-2">
+            <FinanceChart />
+          </li>
+        </ul>
       </div>
-      <div className="w-full lg:w-1/3 flex flex-col gap-8">
+      <div className="space-y-6">
         <EventCalendar />
         <Announcements />
       </div>
