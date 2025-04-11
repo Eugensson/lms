@@ -9,12 +9,9 @@ import { TbDropletPlus } from "react-icons/tb";
 import { PiTreeStructureLight } from "react-icons/pi";
 import { CalendarDays, Mail, Phone } from "lucide-react";
 
-import { FormModal } from "@/components/form-modal";
 import { Performance } from "@/components/performance";
 import { BigCalendar } from "@/components/big-calendar";
 import { Announcements } from "@/components/announcements";
-
-import { role } from "@/lib/data";
 
 const StudentDetailsPage = () => {
   return (
@@ -31,29 +28,7 @@ const StudentDetailsPage = () => {
               />
             </div>
             <div className="w-2/3 flex flex-col justify-between gap-4">
-              <div className="flex items-center justify-between gap-4">
-                <h2 className="text-2xl font-semibold">Cameron Moran</h2>
-                {role === "admin" && (
-                  <FormModal
-                    table="teacher"
-                    type="update"
-                    data={{
-                      id: 1,
-                      username: "deanguerrero",
-                      email: "deanguerrero@gmail.com",
-                      password: "password",
-                      firstName: "Dean",
-                      lastName: "Guerrero",
-                      phone: "+1 234 567 89",
-                      address: "1234 Main St, Anytown, USA",
-                      bloodType: "A+",
-                      dateOfBirth: "2000-01-01",
-                      sex: "male",
-                      img: "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                    }}
-                  />
-                )}
-              </div>
+              <h2 className="text-2xl font-semibold">Cameron Moran</h2>
               <p className="text-xs md:text-base text-gray-500">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               </p>
