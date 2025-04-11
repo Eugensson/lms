@@ -12,29 +12,31 @@ import {
 } from "recharts";
 import { MoreHorizontal } from "lucide-react";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 const data = [
   {
-    name: "Понеділок",
+    name: "Пн",
     присутні: 63,
     відсутні: 43,
   },
   {
-    name: "Вівторок",
+    name: "Вт",
     присутні: 76,
     відсутні: 30,
   },
   {
-    name: "Середа",
+    name: "Ср",
     присутні: 90,
     відсутні: 16,
   },
   {
-    name: "Четвер",
+    name: "Чт",
     присутні: 86,
     відсутні: 20,
   },
   {
-    name: "П'ятниця",
+    name: "Пт",
     присутні: 65,
     відсутні: 41,
   },
@@ -42,43 +44,61 @@ const data = [
 
 export const AttendanceChart = () => {
   return (
-    <div className="bg-white rounded-lg p-4 h-full">
-      <div className="flex justify-between items-center">
-        <h1 className="text-lg font-semibold">Відвідуваність</h1>
-        <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
-      </div>
-      <ResponsiveContainer width="100%" height="90%">
-        <BarChart width={500} height={300} data={data} barSize={20}>
-          <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#ddd" />
-          <XAxis
-            dataKey="name"
-            axisLine={false}
-            tick={{ fill: "#d1d5db" }}
-            tickLine={false}
-          />
-          <YAxis axisLine={false} tick={{ fill: "#d1d5db" }} tickLine={false} />
-          <Tooltip
-            contentStyle={{ borderRadius: "10px", borderColor: "lightgray" }}
-          />
-          <Legend
-            align="left"
-            verticalAlign="top"
-            wrapperStyle={{ paddingTop: "20px", paddingBottom: "40px" }}
-          />
-          <Bar
-            dataKey="присутні"
-            fill="#fae27c"
-            legendType="circle"
-            radius={[10, 10, 0, 0]}
-          />
-          <Bar
-            dataKey="відсутні"
-            fill="#c3ebfa"
-            legendType="circle"
-            radius={[10, 10, 0, 0]}
-          />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
+    <Card className="h-100">
+      <CardHeader className="flex items-center justify-between">
+        <CardTitle className="text-lg">Відвідуваність</CardTitle>
+        <MoreHorizontal
+          size={24}
+          className="text-muted-foreground cursor-pointer"
+        />
+      </CardHeader>
+      <CardContent className="h-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart width={500} height={300} data={data} barSize={20}>
+            <CartesianGrid
+              strokeDasharray="3 3"
+              vertical={false}
+              stroke="gray"
+            />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tick={{ fill: "gray" }}
+              tickLine={false}
+              className="text-xs"
+            />
+            <YAxis
+              axisLine={false}
+              tick={{ fill: "gray" }}
+              tickLine={false}
+              className="text-xs"
+            />
+            <Tooltip
+              contentStyle={{
+                borderRadius: "10px",
+                borderColor: "lightgray",
+              }}
+            />
+            <Legend
+              align="left"
+              verticalAlign="top"
+              wrapperStyle={{ paddingTop: "20px", paddingBottom: "40px" }}
+            />
+            <Bar
+              dataKey="присутні"
+              fill="#0000ff"
+              legendType="circle"
+              radius={[5, 5, 0, 0]}
+            />
+            <Bar
+              dataKey="відсутні"
+              fill="#ff0000"
+              legendType="circle"
+              radius={[5, 5, 0, 0]}
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
   );
 };

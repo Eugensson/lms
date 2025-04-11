@@ -5,6 +5,15 @@ import { useForm } from "react-hook-form";
 import { CloudUpload } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
 import { InputField } from "@/components/input-field";
 
 const schema = z.object({
@@ -49,12 +58,12 @@ export const StudentForm = ({
   });
 
   return (
-    <form className="flex flex-col gap-8" onSubmit={onSubmit}>
-      <h1 className="text-xl font-semibold">Додати нового учня</h1>
-      <span className="text-xs text-gray-400 font-medium">
+    <form className="space-y-4" onSubmit={onSubmit}>
+      <h2 className="text-xl font-semibold text-center">Додати нового учня</h2>
+      <p className="text-xs text-muted-foreground font-medium">
         Інформація про учня
-      </span>
-      <div className="flex justify-between flex-wrap gap-4">
+      </p>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <InputField
           label="Прізвище та ініціали"
           name="username"
@@ -78,10 +87,10 @@ export const StudentForm = ({
           error={errors?.password}
         />
       </div>
-      <span className="text-xs text-gray-400 font-medium">
+      <p className="text-xs text-muted-foreground font-medium">
         Особиста інформація
-      </span>
-      <div className="flex justify-between flex-wrap gap-4">
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-6">
         <InputField
           label="Прізвище"
           name="firstName"
@@ -125,41 +134,44 @@ export const StudentForm = ({
           error={errors.birthday}
           type="date"
         />
-        <div className="flex flex-col gap-2 w-full md:w-1/4">
-          <label className="text-xs text-gray-500">Стать</label>
-          <select
-            className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
-            {...register("sex")}
-            defaultValue={data?.sex}
-          >
-            <option value="male">Хлопець</option>
-            <option value="female">Дівчина</option>
-          </select>
+        <div className="space-y-2">
+          <Label className="text-xs font-normal">Стать</Label>
+          <Select {...register("sex")} defaultValue={data?.sex}>
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Оберіть стать" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="male">Хлопець</SelectItem>
+              <SelectItem value="female">Дівчина</SelectItem>
+            </SelectContent>
+          </Select>
           {errors.sex?.message && (
-            <p className="text-xs text-red-400">
+            <p className="text-xs text-destructive">
               {errors.sex.message.toString()}
             </p>
           )}
         </div>
-        <div className="flex flex-col gap-2 w-full md:w-1/4 justify-center">
-          <label
-            className="text-xs text-gray-500 flex items-center gap-2 cursor-pointer"
-            htmlFor="img"
-          >
-            <CloudUpload />
-            <span>Оновити фото профілю</span>
-          </label>
-          <input type="file" id="img" {...register("img")} className="hidden" />
+        <div className="space-y-2 mr-auto">
+          <Label className="text-xs font-normal cursor-pointer flex flex-col gap-1">
+            Оновити зображення
+            <input
+              type="file"
+              id="img"
+              {...register("img")}
+              className="sr-only"
+            />
+            <CloudUpload className="text-muted-foreground mt-4 ml-4" />
+          </Label>
           {errors.img?.message && (
-            <p className="text-xs text-red-400">
+            <p className="text-xs text-destructive">
               {errors.img.message.toString()}
             </p>
           )}
         </div>
       </div>
-      <button className="bg-blue-400 text-white p-2 rounded-md">
+      <Button type="submit" size="lg" className="w-50 flex mx-auto">
         {type === "create" ? "Додати" : "Оновити"}
-      </button>
+      </Button>
     </form>
   );
 };

@@ -8,7 +8,7 @@ import { AttendanceChart } from "@/components/attendance-chart";
 const AdminPage = () => {
   return (
     <div className="p-4 grid grid-cols-1 lg:grid-cols-3 gap-4">
-      <div className="lg:col-span-2 space-y-8">
+      <div className="lg:col-span-2 space-y-6">
         <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           <li>
             <UserCard type="student" />
@@ -23,14 +23,14 @@ const AdminPage = () => {
             <UserCard type="staff" />
           </li>
         </ul>
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <li className="h-110">
+        <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <li>
             <CountChart />
           </li>
-          <li className="h-110">
+          <li>
             <AttendanceChart />
           </li>
-          <li className="h-125 md:col-span-2">
+          <li className="md:col-span-2">
             <FinanceChart />
           </li>
         </ul>

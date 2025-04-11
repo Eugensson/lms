@@ -1,10 +1,19 @@
 "use client";
 
 // import dynamic from "next/dynamic";
-import { JSX, useState } from "react";
-import { Plus, SquarePen, Trash2, X } from "lucide-react";
+import { JSX } from "react";
+import { Plus, SquarePen, Trash2 } from "lucide-react";
 
 // USE LAZY LOADING
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
 import { TeacherForm } from "@/components/forms/teacher-form";
@@ -50,8 +59,6 @@ export const FormModal = ({
   data?: any;
   id?: number;
 }) => {
-  const [open, setOpen] = useState(false);
-
   const Form = () => {
     return type === "delete" && id ? (
       <form action="" className="p-4 flex flex-col gap-4">
@@ -71,35 +78,42 @@ export const FormModal = ({
   };
 
   return (
-    <>
-      <Button
-        size="icon"
-        type="button"
-        variant="outline"
-        onClick={() => setOpen(true)}
-        className="cursor-pointer"
-      >
-        {type === "create" ? (
-          <Plus />
-        ) : type === "update" ? (
-          <SquarePen />
-        ) : (
-          <Trash2 />
-        )}
-      </Button>
-      {open && (
-        <div className="w-screen h-screen absolute left-0 top-0 bg-black bg-opacity-60 z-50 flex items-center justify-center">
-          <div className="bg-white p-4 rounded-md relative w-[90%] md:w-[70%] lg:w-[60%] xl:w-[50%] 2xl:w-[40%]">
-            <Form />
-            <div
-              className="absolute top-4 right-4 cursor-pointer"
-              onClick={() => setOpen(false)}
-            >
-              <X />
-            </div>
-          </div>
-        </div>
-      )}
-    </>
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button
+          size="icon"
+          type="button"
+          variant="outline"
+          className="cursor-pointer"
+        >
+          {type === "create" ? (
+            <Plus />
+          ) : type === "update" ? (
+            <SquarePen />
+          ) : (
+            <Trash2 />
+          )}
+        </Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle className="sr-only">
+            {type === "create"
+              ? "Додати"
+              : type === "update"
+              ? "Редагувати"
+              : "Видалити"}
+          </DialogTitle>
+          <DialogDescription className="sr-only">
+            {type === "create"
+              ? "Додати нову інформацію"
+              : type === "update"
+              ? "Редагувати інформацію"
+              : "Видалити інформацію"}
+          </DialogDescription>
+        </DialogHeader>
+        <Form />
+      </DialogContent>
+    </Dialog>
   );
 };

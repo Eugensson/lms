@@ -1,4 +1,6 @@
 import { FieldError } from "react-hook-form";
+import { Label } from "./ui/label";
+import { Input } from "./ui/input";
 
 type InputFieldProps = {
   label: string;
@@ -21,17 +23,17 @@ export const InputField = ({
   inputProps,
 }: InputFieldProps) => {
   return (
-    <div className="flex flex-col gap-2 w-full md:w-1/4">
-      <label className="text-xs text-gray-500">{label}</label>
-      <input
+    <div className="space-y-2">
+      <Label className="text-xs font-normal">{label}</Label>
+      <Input
         type={type}
         {...register(name)}
-        className="ring-[1.5px] ring-gray-300 p-2 rounded-md text-sm w-full"
         {...inputProps}
         defaultValue={defaultValue}
+        className="w-full"
       />
       {error?.message && (
-        <p className="text-xs text-red-400">{error.message.toString()}</p>
+        <p className="text-xs text-destructive">{error.message.toString()}</p>
       )}
     </div>
   );

@@ -12,6 +12,8 @@ import {
 } from "recharts";
 import { MoreHorizontal } from "lucide-react";
 
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+
 const data = [
   {
     name: "Січ",
@@ -77,57 +79,64 @@ const data = [
 
 export const FinanceChart = () => {
   return (
-    <div className="bg-white rounded-xl w-full h-full p-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-lg font-semibold">Фінанси</h1>
-        <MoreHorizontal size={24} className="text-gray-500 cursor-pointer" />
-      </div>
-      <ResponsiveContainer width="100%" height="90%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
-          <XAxis
-            dataKey="name"
-            axisLine={false}
-            tick={{ fill: "#d1d5db" }}
-            tickLine={false}
-            tickMargin={10}
-          />
-          <YAxis
-            axisLine={false}
-            tick={{ fill: "#d1d5db" }}
-            tickLine={false}
-            tickMargin={20}
-          />
-          <Tooltip />
-          <Legend
-            align="center"
-            verticalAlign="top"
-            wrapperStyle={{ paddingTop: "10px", paddingBottom: "30px" }}
-          />
-          <Line
-            type="monotone"
-            dataKey="дохід"
-            stroke="#1d4ed8"
-            strokeWidth={5}
-          />
-          <Line
-            type="monotone"
-            dataKey="витрати"
-            stroke="#fda4af"
-            strokeWidth={5}
-          />
-        </LineChart>
-      </ResponsiveContainer>
-    </div>
+    <Card className="h-100">
+      <CardHeader className="flex items-center justify-between">
+        <CardTitle className="text-lg">Фінанси</CardTitle>
+        <MoreHorizontal
+          size={24}
+          className="text-muted-foreground cursor-pointer"
+        />
+      </CardHeader>
+      <CardContent className="h-full">
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart
+            width={500}
+            height={300}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" stroke="#ddd" />
+            <XAxis
+              dataKey="name"
+              axisLine={false}
+              tick={{ fill: "gray" }}
+              tickLine={false}
+              tickMargin={10}
+              className="text-xs"
+            />
+            <YAxis
+              axisLine={false}
+              tick={{ fill: "gray" }}
+              tickLine={false}
+              tickMargin={20}
+              className="text-xs"
+            />
+            <Tooltip />
+            <Legend
+              align="center"
+              verticalAlign="top"
+              wrapperStyle={{ paddingTop: "10px", paddingBottom: "30px" }}
+            />
+            <Line
+              type="monotone"
+              dataKey="дохід"
+              stroke="#0000ff"
+              strokeWidth={2}
+            />
+            <Line
+              type="monotone"
+              dataKey="витрати"
+              stroke="#ff0000"
+              strokeWidth={2}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </CardContent>
+    </Card>
   );
 };
